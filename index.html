@@ -1,0 +1,469 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Team overview | Netlify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e1e25">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.netlify.com/img/global/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet" href="https://d33wubrfki0l68.cloudfront.net/css/7cdd7e666657fa0427d99f944156a4baa570dc86/style/app.css">
+    <script src="https://js.hs-banner.com/7477936.js" type="text/javascript" id="cookieBanner-7477936" data-cookieconsent="ignore" data-hs-ignore="true" data-loader="hs-scriptloader" data-hsjs-portal="7477936" data-hsjs-env="prod" data-hsjs-hublet="na1"></script>
+    <script src="https://js-na1.hs-scripts.com/7477936.js" type="text/javascript" id="hs-script-loader"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async="" src="https://js.hs-analytics.net/analytics/1629028800000/7477936.js" id="hs-analytics"></script>
+    <script type="text/javascript" async="" src="https://edge.fullstory.com/s/fs.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WZQ32TR&amp;l=dataLayer"></script>
+    <script type="text/javascript" async="" src="https://cdn.segment.com/analytics.js/v1/bHbADSxnRvrpFMYP6pMNP38JC4J7Av75/analytics.min.js"></script>
+    <script type="text/javascript">
+        if (window.location.host === "app.netlify.com") {
+            ! function() {
+                var analytics = window.analytics = window.analytics || [];
+                if (!analytics.initialize)
+                    if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+                    else {
+                        analytics.invoked = !0;
+                        analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "page", "once", "off", "on"];
+                        analytics.factory = function(t) {
+                            return function() {
+                                var e = Array.prototype.slice.call(arguments);
+                                e.unshift(t);
+                                analytics.push(e);
+                                return analytics
+                            }
+                        };
+                        for (var t = 0; t < analytics.methods.length; t++) {
+                            var e = analytics.methods[t];
+                            analytics[e] = analytics.factory(e)
+                        }
+                        analytics.load = function(t) {
+                            var e = document.createElement("script");
+                            e.type = "text/javascript";
+                            e.async = !0;
+                            e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+                            var n = document.getElementsByTagName("script")[0];
+                            n.parentNode.insertBefore(e, n)
+                        };
+                        analytics.SNIPPET_VERSION = "3.1.0";
+                        analytics.load("bHbADSxnRvrpFMYP6pMNP38JC4J7Av75");
+                    }
+            }();
+        }
+    </script>
+    <script>
+        (function(FS) {
+            var session = FS.getCurrentSession(),
+                sessionUrl = FS.getCurrentSessionURL();
+
+            function retryWithBackoff(condition, callback, maxWait, failureMsg) {
+                var totalTimeExpired = 0;
+                var wait = 64;
+                var resultFn = function() {
+                    if (condition()) {
+                        callback();
+                        return;
+                    }
+                    wait = Math.min(wait * 2, 1024);
+                    if (totalTimeExpired > maxWait) {
+                        FS.log('warn', failureMsg);
+                        return;
+                    }
+                    totalTimeExpired += wait
+                    setTimeout(resultFn, wait);
+                };
+                return resultFn;
+            }
+
+            (function() {
+                var bs;
+                if (window['bugsnagClient']) {
+                    // For bugsnag API versions 4 through 6
+                    bs = window.bugsnagClient;
+                } else if (window['Bugsnag']) {
+                    // For bugsnag API version 3, or 7+ (as of Dec. 2020)
+                    bs = window.Bugsnag;
+                } else {
+                    FS.log("warn", "Bugsnag script was not loaded even though the Bugsnag integration is turned on.");
+                    return;
+                }
+                if (bs.addMetadata) {
+                    // Recent versions have this API
+                    bs.addMetadata('fullstory', {
+                        url: sessionUrl
+                    })
+                } else {
+                    if (!bs.metaData) {
+                        bs.metaData = {};
+                    }
+                    if (!bs.metaData.fullstory) {
+                        bs.metaData.fullstory = {};
+                    }
+                    bs.metaData.fullstory.url = sessionUrl;
+                }
+            })();
+
+        })(window['_fs_namespace'] ? window[window['_fs_namespace']] : window['FS'])
+    </script>
+    <style id="inert-style">
+        [inert] {
+            pointer-events: none;
+            cursor: default;
+        }
+        
+        [inert],
+        [inert] * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body data-loaded="true">
+    <script src="https://cdn.sift.com/s.js"></script>
+    <svg style=" bottom: 0; position: absolute; z-index: -1;" aria-hidden="true">
+      <defs>
+        <radialGradient id="logo-gradient" cx="0%" cy="0%" r="100%" fx="0%" fy="0%">
+          <stop offset="0%" stop-color="#20C6B7"></stop>
+          <stop offset="100%" stop-color="#4D9ABF"></stop>
+        </radialGradient>
+        <path id="logomark" d="M290 139l-1-1 8-50 38 38-39 17h-1l-5-4zm55-3l40 40c9 9 13 13 14 18l1 2-97-41-1-1 1-1 42-17zm53 73c-2 4-6 8-13 15l-45 45-59-12h-1l-1-1c0-5-3-9-7-12v-1l11-68v-1l1-1c5 0 9-3 12-7h2l100 43zm-69 71l-75 75 13-79 1-1 7-5 1-1 53 11zm-91 91l-8 8-94-135v-1l1-2 1-1h1l103 22h1v1c2 5 6 10 11 12v1l-16 95zm-17 17c-7 6-10 10-15 11h-12c-5-2-9-6-18-14l-94-94 25-38h1a25 25 0 0 0 18-1h1l94 136zM73 282l-21-21 42-19h1l1 1 1 2v1l-24 36zm-31-31l-27-27-10-11 83 17 1 1-1 1-46 19zM0 199l1-5c1-5 6-9 14-18l35-35a22695 22695 0 0 0 48 70l1 1a29 29 0 0 0-5 6h-1L0 199zm59-67l47-47 35 15a5977 5977 0 0 1 25 11l-1 5c0 5 2 10 6 14v2l-48 73v1h-1l-6-1-5 1h-1v-1l-51-73zm57-56l60-61c9-8 13-12 18-14h12c5 2 10 6 18 14l13 13-43 67v1h-1l-7-1c-5 0-10 1-13 4h-2l-55-23zm130-39l40 40-9 60h-1v1a19 19 0 0 0-6 3h-1l-61-26-1-1a23 23 0 0 0-3-9v-2l42-66zm-41 90l57 24 1 1v5l-1 1-127 54-1-1 1-1 47-72 1-1h3a21 21 0 0 0 18-10h1zm-65 96l128-55 1 1 1 1h1v1l-11 68v1c-6 0-12 4-15 9v1h-1l-102-22-2-5z"></path>
+        <symbol id="logo" viewBox="0 0 400 400">
+          <use xlink:href="#logomark" fill="url(#logo-gradient)"></use>
+        </symbol>
+        <symbol id="logo-mono" viewBox="0 0 400 400">
+          <use xlink:href="#logomark" fill="#0E1E25"></use>
+        </symbol>
+      </defs>
+    </svg>
+    <main class="splash-screen">
+        <div class="tw-z-overlay tw-fixed tw-inset-0 tw-items-center tw-flex tw-justify-center tw-m-0 tw-min-h-screen tw-bg-black">
+            <div class="container">
+                <svg aria-hidden="true" width="50" height="50" class="rotate-loop">
+            <use xlink:href="#logo"></use>
+          </svg>
+                <p class="visuallyhidden">Loading Netlify dashboard</p>
+            </div>
+        </div>
+    </main>
+    <div id="root" tabindex="-1">
+        <div role="status" aria-live="polite" aria-atomic="true" class="visuallyhidden"></div>
+        <div class="app">
+            <header class="app-header inverse" role="banner"><a href="#main" class="skip-to-main">Skip to main content</a>
+                <div class="container">
+                    <div class="tw-flex tw-justify-between">
+                        <ol class="tw-flex tw-flex-wrap tw-items-center tw-list-none tw-mx-[-12px] tw-my-0 tw-p-0 tw-flex-col tw-items-start tw-text-xl tw-text-white md:tw-flex-row md:tw-items-center">
+                            <li class="tw-flex tw-items-center tw-m-[4px]">
+                                <a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest tw-text-xl !tw-text-white active tw-flex tw-items-center tw-p-0 tw-ml-1 hover:!tw-bg-transparent !tw-text-white active"
+                                    href="/">
+                                    <div class="tw-w-4 tw-h-4"><svg viewBox="0 0 400 397" xmlns="http://www.w3.org/2000/svg" class="!tw-fill-current" title="Netlify" role="img"><radialGradient id="a" cx="0%" cy="0%" r="100%"><stop offset="0" stop-color="#20c6b7"></stop><stop offset="1" stop-color="#4d9abf"></stop></radialGradient><path d="M282.153 140.402a16.953 16.953 0 015.105 3.84c.17.167.17.167.34.167h.17l39.14-16.53c.17-.166.342-.332.342-.5 0-.166 0-.333-.17-.5l-36.59-35.894c-.17-.167-.34-.167-.34-.167h-.17c-.17 0-.34.166-.34.5l-7.998 48.582c.17.167.34.5.51.5zm-81.174-32.554c1.87 2.838 3.062 6.177 3.402 9.516 0 .167.17.334.34.5l58.2 24.542h.17c.17 0 .34 0 .34-.167 1.703-1.337 3.745-2.338 5.957-3.006.17 0 .34-.167.34-.5l9.53-58.6c0-.166 0-.333-.17-.5L242.672 43.74c-.17-.167-.17-.167-.34-.167s-.34.167-.34.334l-41.013 63.106c-.172.334-.172.668 0 .835zm198.765 90.318L337.29 136.73c-.17-.167-.34-.167-.34-.167h-.17l-42.375 17.863c-.17.167-.34.334-.34.5 0 .168.17.502.34.502l104.49 43.907h.17c.17 0 .34 0 .34-.167l.34-.334c.34 0 .34-.5 0-.668zm-10.38 10.017l-100.235-42.07h-.17c-.17 0-.34 0-.51.166-2.724 3.672-6.808 6.01-11.573 6.677-.17 0-.51.167-.51.5l-10.72 65.277c0 .167 0 .334.17.5 3.743 2.84 5.955 7.013 6.465 11.687 0 .335.17.502.51.502l60.584 12.52h.17c.17 0 .34 0 .34-.166l55.478-54.59c.17-.168.17-.335.17-.502s0-.334-.17-.5zm-132.74-55.76l-54.796-23.04h-.17c-.17 0-.34.168-.51.335-3.745 5.676-10.042 9.015-16.85 9.015-1.02 0-2.04-.167-3.232-.334h-.17c-.17 0-.34.166-.51.333l-45.098 69.283c-.17.167-.17.5 0 .668.17.167.34.167.51.167h.17l120.316-50.918c.17-.167.34-.334.34-.5v-1.504c0-1.003.17-2.005.34-2.84 0-.333-.17-.5-.34-.667zm66.03 121.203l-53.266-10.85h-.17c-.17 0-.34.166-.51.166-2.043 2.504-4.596 4.507-7.66 5.676-.17 0-.34.334-.34.5l-12.763 77.798c0 .334.17.5.34.668h.34c.17 0 .34 0 .34-.167l73.858-72.622c.17-.167.17-.334.17-.5 0-.502-.17-.67-.34-.67zm-74.367-5.342c-5.106-2.004-8.85-6.51-10.21-11.686 0-.167-.17-.334-.512-.5l-98.702-20.202h-.17c-.17 0-.34.167-.51.334-.51.835-.852 1.503-1.362 2.17-.17.167-.17.5 0 .668l89.853 128.883c.17.168.17.168.34.168s.34 0 .34-.167l5.447-5.34c0-.168.17-.168.17-.335l15.316-93.49c.34 0 .34-.334 0-.5zm-107.382-44.24c0 .333.17.5.51.5l97.852 20.033h.17c.17 0 .34-.167.51-.334 2.894-5.008 8-8.347 13.785-8.68.34 0 .51-.168.51-.502l10.552-64.273c0-.167 0-.5-.34-.5-.68-.502-1.362-1.003-2.213-1.837-.17-.167-.34-.167-.34-.167h-.17l-120.996 51.252c-.34.167-.34.334-.34.668.17 1.336.51 2.504.51 3.84zm-41.012 16.193c-.51-.668-1.02-1.336-1.532-2.17-.17-.168-.34-.334-.51-.334h-.17l-42.204 17.863c-.17 0-.34.167-.34.334s0 .334.17.5l20.59 20.2a.53.53 0 00.34.168c.17 0 .34-.167.512-.334l23.314-35.893s0-.166-.17-.333zm27.91 6.51c-.172-.166-.342-.333-.512-.333h-.17c-3.063 1.335-6.126 2.003-9.36 2.003-2.552 0-4.935-.334-7.488-1.168h-.17c-.17 0-.34.165-.51.332l-24.506 37.73-.17.167c-.17.166-.17.5 0 .667l112.657 110.686c.17.167.34.167.34.167.17 0 .34 0 .34-.167l19.74-19.533c.17-.167.17-.5 0-.668l-90.192-129.884zm-15.828-43.572c.17.166.34.333.51.333h.17c1.703-.333 3.575-.667 5.276-.667 1.872 0 3.914.335 5.786.835h.17c.17 0 .34-.167.51-.334l45.608-70.116c.17-.167.17-.5 0-.668-3.573-3.673-5.615-8.514-5.615-13.69 0-1.502.17-3.005.51-4.507 0-.335-.17-.502-.34-.67-5.785-2.503-57.008-23.873-57.008-24.04h-.17c-.17 0-.34 0-.34.167l-43.396 42.74c-.17.166-.17.5 0 .667l48.33 69.95zM116.91 80.97s51.735 21.702 53.947 22.704h.17c.17 0 .17 0 .34-.167 3.575-2.838 8.17-4.507 12.764-4.507 2.213 0 4.426.333 6.638 1h.17c.17 0 .34-.166.51-.333l42.034-64.608a.504.504 0 000-.67L198.596.168c-.17-.167-.17-.167-.34-.167s-.34 0-.34.167l-81.005 79.8c-.17.168-.17.335-.17.5-.17.335 0 .335.17.502zM96.83 215.36c.17 0 .34-.167.51-.334 1.022-2.004 2.554-3.84 4.085-5.51.17-.166.17-.5 0-.667-.51-.667-46.628-66.778-46.628-66.945-.17-.167-.17-.167-.51-.334-.17 0-.34 0-.34.168L.17 194.493c-.17.167-.17.334-.17.5 0 .168.17.335.51.335l96.32 20.034c-.17 0-.17 0 0 0zm-4.424 11.52c0-.335-.17-.502-.51-.502L8.338 209.185h-.172c-.17 0-.34.167-.51.334-.17.165 0 .5.17.666l37.27 36.73c.17.166.34.166.34.166h.17l46.287-19.533c.34-.335.51-.502.51-.67z" fill="url(#a)"></path></svg></div>
+                                </a>
+                            </li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]">
+                                <div class="dropdown" aria-expanded="false" aria-haspopup="listbox"><button role="button" aria-label="The Sages. Open menu" aria-haspopup="true" data-toggle="true" name="The Sages" class="btn btn-default btn-tertiary btn-tertiary--standard tw-text-xl tw-font-semibold tw-leading-none tw-w-auto tw-text-black hover:tw-text-black hover:tw-bg-transparent dark:tw-text-white dark:hover:tw-bg-transparent tw-p-1 tw-leading-3 !tw-text-white hover:tw-bg-gray-darkest focus:tw-bg-gray-darkest dark:hover:tw-bg-gray-dark dark:focus:tw-bg-gray-dark"
+                                        type="button">The Sages<svg height="12" viewBox="0 0 16 16" width="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="!tw-fill-current tw-transition-transform tw-duration-100 tw-ease-cubic-bezier tw-align-middle tw-inline-block tw--mt-[2px] tw-ml-1"><path d="M4 4l3.4 3.4c.3.4.9.4 1.2 0L11.9 4 14 6.2l-5.4 5.6c-.3.3-.9.3-1.2 0L2 6.2z"></path></svg></button>
+                                    <ul class="dropdown-inner dropdown-menu">
+                                        <li><a id="account-dropdown-item-0" role="option" aria-selected="false" class="menuitem selected">The Sages<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-label="selected" class="checkmark"><path d="M6.054 8.958L3.65 6.555A2.112 2.112 0 10.663 9.543l3.86 3.86a2.112 2.112 0 002.054.543c.38-.084.74-.274 1.033-.568l7.77-7.77a2.114 2.114 0 00-2.987-2.99l-6.34 6.34z"></path></svg></a></li>
+                                        <li><a id="account-dropdown-item-1" role="option" aria-selected="false" class="menuitem divider">Create new team</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="tw-flex tw-flex-wrap tw-justify-end tw-self-start lg:tw-self-center">
+                            <div class="tw-flex tw-flex-full tw-justify-end tw-items-end tw-mt-2 tw-order-2 lg:tw-flex-auto lg:tw-mr-1 lg:tw-mt-0 lg:tw-order-0"><a class="btn btn-default btn-primary btn-primary--gold tw-w-auto" href="/teams/oracle/billing/pricing">Upgrade</a></div>
+                            <div class="md:tw-mx-1 md:tw-relative tw-mx-[4px] tw-static tw-w-button-icon" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="downshift-9-label"><button role="button" aria-label="Notifications. Open menu" aria-haspopup="true" data-toggle="true" class="btn btn-icon btn-tertiary btn-tertiary--standard hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest active:tw-text-white active:tw-bg-gray-darkest dark:hover:tw-text-white dark:active:tw-text-white tw-text-gray-dark tw-bg-transparent dark:tw-text-gray-light"
+                                    type="button"><span class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="!tw-fill-current" title="Notifications" role="img"><g fill="none"><path fill="currentColor" d="M15 19a3 3 0 11-6 0h6zm3.13-2H5.87C4.838 17 4 16.105 4 15c0-.348.085-.69.246-.992L6.388 10V8C6.388 4.686 8.9 2 12 2s5.611 2.686 5.611 6v2l2.142 4.008c.513.959.201 2.18-.696 2.728a1.778 1.778 0 01-.928.264z"></path></g></svg></span></button></div>
+                            <div class="md:tw-mx-1 md:tw-relative tw-mx-[4px] tw-static tw-w-button-icon" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="downshift-10-label"><button role="button" aria-label="Support. Open menu" aria-haspopup="true" data-toggle="true" class="btn btn-icon btn-tertiary btn-tertiary--standard hover:tw-text-white hover:tw-bg-gray-darkest active:tw-text-white active:tw-bg-gray-darkest dark:hover:tw-text-white dark:active:tw-text-white tw-text-gray-dark tw-bg-transparent dark:tw-text-gray-light"
+                                    type="button"><span class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2"><svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="!tw-fill-current" title="Support" role="img" width="24" height="24"><path clip-rule="evenodd" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM4 8a4 4 0 118 0 4 4 0 01-8 0z" fill="#7d8589" fill-rule="evenodd"></path><path d="M13.77 11.97L11.58 9.8c-.23.45-.54.86-.92 1.2l2.12 2.12c.37-.34.7-.72.99-1.14zM3.22 13.11L5.34 11c-.38-.34-.7-.75-.92-1.2l-2.18 2.18c.28.42.61.8.98 1.14zm2.41-8.33c-.4.3-.75.67-1.02 1.1L2.46 3.72c.3-.4.65-.76 1.04-1.08zm5.81 1.17c-.26-.43-.6-.81-1-1.12l2.13-2.13c.38.33.72.7 1.03 1.1z" fill="#2d3b41"></path></svg></span></button></div>
+                            <div class="dropdown tw-w-[36px] tw-h-[36px] tw-ml-[4px] md:tw-ml-1" aria-expanded="false" aria-haspopup="listbox"><button role="button" aria-label="User. Open menu" aria-haspopup="true" data-toggle="true" name="User" class="btn btn-default btn-tertiary btn-tertiary--standard tw-rounded-50 tw-w-[36px] tw-h-[36px] hover:tw-shadow-teal tw-relative"
+                                    type="button"><img class="tw-rounded-50 tw-inline-block tw-text-xl tw-text-center tw-self-center tw-object-cover tw-h-avatar-md tw-w-avatar-md tw-leading-normal tw-border-gray-darkest tw-border-solid tw-border tw-absolute tw-m-0 tw-top-0 tw-left-0" src="https://avatars3.githubusercontent.com/u/69037600?s=32" width="32" height="32" alt=""></button>
+                                <ul class="dropdown-inner dropdown-menu tw-top-4 tw-mt-[4px] tw-left-auto tw-right-0">
+                                    <li>
+                                        <a id="downshift-11-item-0" role="option" aria-selected="false" class="menuitem">
+                                            <div><strong class="h4">Oracle<br></strong><small class="subdued">benjaminolapade@designitafrica.org</small></div>
+                                        </a>
+                                    </li>
+                                    <li><a id="downshift-11-item-1" role="option" aria-selected="false" class="menuitem">User settings</a></li>
+                                    <li><a id="downshift-11-item-2" role="option" aria-selected="false" class="menuitem">Netlify Labs</a></li>
+                                    <li><a id="downshift-11-item-3" role="option" aria-selected="false" class="menuitem">Sign out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <nav aria-label="Secondary navigation" class="tw--mb-1 tw-dark">
+                        <hr class="tw-mt-[12px] tw-mb-[4px]">
+                        <ul class="tw-flex tw-flex-wrap tw-items-center tw-list-none tw-mx-[-12px] tw-my-0 tw-p-0">
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest !tw-text-white active"
+                                    href="/teams/oracle/overview">Team overview</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/sites">Sites</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/builds/">Builds</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/plugins">Plugins</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/dns">Domains</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/members">Members</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/log">Audit log</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/billing">Billing</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="/teams/oracle/settings">Team settings</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <main id="main" class="app-main" role="main" tabindex="-1">
+                <div class="container">
+                    <div class="layout-overview-hero">
+                        <h1 class="tw-sr-only">Team overview</h1>
+                        <div class="container">
+                            <section>
+                                <div class="card">
+                                    <header class="card-header card-header--with-inline-details">
+                                        <h1 class="h2">The Sages <a class="badge badge-plan badge-plan--starter" href="/teams/oracle/billing"><span class="tw-sr-only">Plan type: </span>Starter</a></h1><small>Current billing period (<time datetime="2021-08-05T07:00:00.000Z">Aug 5</time> to <time datetime="2021-09-05T07:00:00.000Z">Sep 5</time>)</small></header>
+                                    <p>Welcome back <span role="img" aria-label="sparkles">✨</span></p>
+                                    <div class="tw-grid tw-gap-1 tw-grid-cols-1 md:tw-gap-2 md:tw-grid-cols-2 lg:tw-gap-1 lg:tw-grid-cols-4 lg:tw-gap-1 lg:tw-grid-cols-4 tw-mt-2 md:tw-mt-2">
+                                        <div class="tw-bg-gray-lightest tw-rounded-sm tw-rounded-tr-sm tw-block tw-relative tw-transition-all tw-duration-150 after:tw-text-gray after:tw-font-bold after:tw-absolute after:tw-top-tiny after:tw-right-tiny dark:tw-bg-gray-darkest tw-w-full"><span class="tw-sr-only">202 MB out of 100 GB Bandwidth used</span>
+                                            <div class="tw-relative tw-overflow-hidden tw-rounded-tr-sm tw-rounded-tl-sm"><meter value="212154541" max="107374182400" class="tw-block tw-h-1 tw-w-full tw-text-[8px] tw-bg-none tw-bg-gray-light tw-text-blue dark:tw-bg-gray-dark dark:tw-text-blue-lighter"></meter></div>
+                                            <dl class="tw-flex tw-flex-col tw-p-1">
+                                                <div><dt class="tw-flex !tw-flex-auto tw-w-full tw-items-center !tw-min-w-full !tw-m-0 !tw-font-regular">Bandwidth used</dt>
+                                                    <dd class="tw-text-xl tw-mt-[4px] tw-leading-none">202 MB<span class="tw-text-gray-darker dark:tw-text-gray-light tw-text-base"><span class="tw-sr-only">out of</span>/100 GB</span><span class="tw-absolute tw-mt-[2px] tw-w-full"></span></dd>
+                                                </div>
+                                            </dl>
+                                        </div><a class="tw-bg-gray-lightest tw-rounded-sm tw-rounded-tr-sm tw-block tw-relative tw-transition-all tw-duration-150 after:tw-text-gray after:tw-font-bold after:tw-absolute after:tw-top-tiny after:tw-right-tiny dark:tw-bg-gray-darkest tw-w-full after:tw-content-arrow hover:tw-no-underline hover:tw-bg-gray-lighter dark:hover:tw-bg-gray-darker"
+                                            href="/teams/oracle/builds/insights"><span class="tw-sr-only">0 out of 300 Build minutes used</span><div class="tw-relative tw-overflow-hidden tw-rounded-tr-sm tw-rounded-tl-sm"><meter value="0" max="300" class="tw-block tw-h-1 tw-w-full tw-text-[8px] tw-bg-none tw-bg-gray-light tw-text-blue dark:tw-bg-gray-dark dark:tw-text-blue-lighter"></meter></div><dl class="tw-flex tw-flex-col tw-p-1"><div><dt class="tw-flex !tw-flex-auto tw-w-full tw-items-center !tw-min-w-full !tw-m-0 !tw-font-regular">Build minutes used</dt><dd class="tw-text-xl tw-mt-[4px] tw-leading-none">0<span class="tw-text-gray-darker dark:tw-text-gray-light tw-text-base"><span class="tw-sr-only">out of</span>/300</span><span class="tw-absolute tw-mt-[2px] tw-w-full"></span></dd></div></dl></a>
+                                        <a class="tw-bg-gray-lightest tw-rounded-sm tw-rounded-tr-sm tw-block tw-relative tw-transition-all tw-duration-150 after:tw-text-gray after:tw-font-bold after:tw-absolute after:tw-top-tiny after:tw-right-tiny dark:tw-bg-gray-darkest tw-w-full after:tw-content-arrow hover:tw-no-underline hover:tw-bg-gray-lighter dark:hover:tw-bg-gray-darker"
+                                            href="/teams/oracle/builds"><span class="tw-sr-only">0 out of 1 Concurrent builds</span>
+                                    <div class="tw-relative tw-overflow-hidden tw-rounded-tr-sm tw-rounded-tl-sm"><meter value="0" max="1" class="tw-block tw-h-1 tw-w-full tw-text-[8px] tw-bg-none tw-bg-gray-light tw-text-blue dark:tw-bg-gray-dark dark:tw-text-blue-lighter"></meter></div>
+                                    <dl class="tw-flex tw-flex-col tw-p-1">
+                                        <div><dt class="tw-flex !tw-flex-auto tw-w-full tw-items-center !tw-min-w-full !tw-m-0 !tw-font-regular">Concurrent builds</dt>
+                                            <dd class="tw-text-xl tw-mt-[4px] tw-leading-none">0<span class="tw-text-gray-darker dark:tw-text-gray-light tw-text-base"><span class="tw-sr-only">out of</span>/1</span><span class="tw-absolute tw-mt-[2px] tw-w-full"></span></dd>
+                                        </div>
+                                    </dl>
+                                    </a><a class="tw-bg-gray-lightest tw-rounded-sm tw-rounded-tr-sm tw-block tw-relative tw-transition-all tw-duration-150 after:tw-text-gray after:tw-font-bold after:tw-absolute after:tw-top-tiny after:tw-right-tiny dark:tw-bg-gray-darkest tw-w-full after:tw-content-arrow hover:tw-no-underline hover:tw-bg-gray-lighter dark:hover:tw-bg-gray-darker tw-pt-1"
+                                            href="/teams/oracle/members"><span class="tw-sr-only">1 Members</span><dl class="tw-flex tw-flex-col tw-p-1"><div><dt class="tw-flex !tw-flex-auto tw-w-full tw-items-center !tw-min-w-full !tw-m-0 !tw-font-regular">Members</dt><dd class="tw-text-xl tw-mt-[4px] tw-leading-none">1<span class="tw-absolute tw-mt-[2px] tw-w-full"></span></dd></div></dl></a></div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="tw-mt-3 tw-ml-2 tw-hidden xl:tw-block">
+                            <div data-testid="logo-edit-inline" class="tw-overflow-hidden tw-rounded-lg tw-w-logo-lg tw-h-logo-lg tw-relative">
+                                <div class="tw-absolute tw-h-full tw-w-full"><img class="tw-block tw-h-full tw-w-full tw-object-cover" src="https://d33wubrfki0l68.cloudfront.net/5f2a6a3b2ef8f27b39586068/52c4b145c177c3f30bcb/kisspng-clash-of-clans-clash-royale-desktop-wallpaper-wizard-clash-of-clans-5b504b2d9693d0.8866520615319887816168.png"
+                                        alt="Logo for The Sages"><input accept="image/png, image/jpeg, image/gif, image/jpg" class="tw-sr-only" id="logo-upload" type="file"><label for="logo-upload" class="tw-h-full tw-w-full tw-absolute tw-top-0 tw-z-10 tw-text-white tw-text-lg tw-font-semibold tw-flex tw-justify-center tw-items-center tw-cursor-pointer tw-opacity-0 hover:tw-opacity-100 before:tw-content-empty before:tw-bg-black before:tw-opacity-54 before:tw-h-full before:tw-w-full before:tw-absolute before:tw-z-negative10 label-focus-visible:tw-opacity-100"><span class="tw-flex tw-justify-center tw-flex-nowrap tw-items-center"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="!tw-fill-current tw-flex-shrink-0 tw-mr-1" focusable="false"><path d="M8 1c.306 0 .579.137.762.352L12.21 4.8a.999.999 0 01-1.413 1.413L9 4.415v7.586a.999.999 0 11-1.998 0V4.413l-1.8 1.8A.999.999 0 113.79 4.8l3.46-3.46A.997.997 0 018 1zm3 13H5a1 1 0 100 2h6a1 1 0 100-2z"></path></svg>Upload image</span></label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-overview-row" data-hide-from-percy="true">
+                        <section class="card table" data-testid="sites-card">
+                            <header class="table-header">
+                                <h2 class="card-title"><a class="card-title__link" href="/teams/oracle/sites">Sites</a></h2>
+                                <div class="toolbar"><a class="btn btn-default btn-primary btn-primary--standard" href="/start">New site from Git</a></div>
+                            </header>
+                            <div class="table-body">
+                                <ul class="animated fade-in">
+                                    <li class="clickable">
+                                        <div class="media">
+                                            <div class="media-figure screenshot">
+                                                <div class="LazyLoad is-visible tw-w-full"><img src="https://d33wubrfki0l68.cloudfront.net/61172024fc2c0b00ed6c653b/screenshot_2021-08-14-01-45-15-0000.png" alt="" class="tw-border-none tw-align-middle tw-max-w-full tw-left-0 tw-top-0 tw-block tw-m-0 tw-p-0 tw-w-full tw-h-full"></div>
+                                            </div>
+                                            <div class="media-body inline">
+                                                <div class="fill">
+                                                    <div class="inline-list">
+                                                        <h3 class="truncate fit-content"><a class="block-link" href="/sites/oracleclassroom-git">oracleclassroom-git</a></h3>
+                                                    </div>
+                                                    <p class="optional meta"><span>Deploys from <a class="tw-text-inherit tw-underline tw-text-decoration-color-gray tw-font-weight-inherit hover:tw-text-black hover:tw-text-decoration-color-inherit dark:hover:tw-text-white dark:tw-text-inherit dark:tw-text-decoration-color-white" target="_blank" rel="noopener noreferrer" href="https://github.com/De-ORaCle/Oracle-Classroom">GitHub</a></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clickable">
+                                        <div class="media">
+                                            <div class="media-figure screenshot">
+                                                <div class="LazyLoad is-visible tw-w-full"><img src="https://d33wubrfki0l68.cloudfront.net/611289e65b77c62b64000e15/screenshot_2021-08-10-14-15-04-0000.png" alt="" class="tw-border-none tw-align-middle tw-max-w-full tw-left-0 tw-top-0 tw-block tw-m-0 tw-p-0 tw-w-full tw-h-full"></div>
+                                            </div>
+                                            <div class="media-body inline">
+                                                <div class="fill">
+                                                    <div class="inline-list">
+                                                        <h3 class="truncate fit-content"><a class="block-link" href="/sites/al-ameen">al-ameen</a></h3>
+                                                    </div>
+                                                    <p class="optional meta"><span>Manual deploys</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clickable">
+                                        <div class="media">
+                                            <div class="media-figure screenshot">
+                                                <div class="LazyLoad tw-w-full"></div>
+                                            </div>
+                                            <div class="media-body inline">
+                                                <div class="fill">
+                                                    <div class="inline-list">
+                                                        <h3 class="truncate fit-content"><a class="block-link" href="/sites/coursead">coursead</a></h3>
+                                                    </div>
+                                                    <p class="optional meta"><span>Deploys from <a class="tw-text-inherit tw-underline tw-text-decoration-color-gray tw-font-weight-inherit hover:tw-text-black hover:tw-text-decoration-color-inherit dark:hover:tw-text-white dark:tw-text-inherit dark:tw-text-decoration-color-white" target="_blank" rel="noopener noreferrer" href="https://github.com/De-ORaCle/CourseAd">GitHub</a></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clickable">
+                                        <div class="media">
+                                            <div class="media-figure screenshot">
+                                                <div class="LazyLoad tw-w-full"></div>
+                                            </div>
+                                            <div class="media-body inline">
+                                                <div class="fill">
+                                                    <div class="inline-list">
+                                                        <h3 class="truncate fit-content"><a class="block-link" href="/sites/designitafrica">designitafrica</a></h3>
+                                                    </div>
+                                                    <p class="optional meta"><span>Deploys from <a class="tw-text-inherit tw-underline tw-text-decoration-color-gray tw-font-weight-inherit hover:tw-text-black hover:tw-text-decoration-color-inherit dark:hover:tw-text-white dark:tw-text-inherit dark:tw-text-decoration-color-white" target="_blank" rel="noopener noreferrer" href="https://github.com/De-ORaCle/DesignIT-Africa">GitHub</a></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="card table">
+                            <header class="table-header">
+                                <h2 class="card-title"><a class="card-title__link" href="/teams/oracle/builds">Builds</a></h2>
+                            </header>
+                            <ul class="table-body">
+                                <li class="clickable">
+                                    <div class="inline">
+                                        <div>
+                                            <p><a class="block-link loud-link" href="/teams/oracle/builds/61172024fc2c0b00ed6c653b">oracleclassroom-git</a> <span class="badge badge--inline success">completed</span></p>
+                                            <p class="meta truncate"><span><span>Production</span><span>:  <span class="nowrap-wide"><abbr class="truncate" title="main">main</abbr>@<span class="monospace">HEAD</span></span>
+                                                </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="clickable">
+                                    <div class="inline">
+                                        <div>
+                                            <p><a class="block-link loud-link" href="/teams/oracle/builds/610dd8cbb5d12c57bc5f5bf4">coursead</a> <span class="badge badge--inline success">completed</span></p>
+                                            <p class="meta truncate"><span><span>Production</span><span>:  <span class="nowrap-wide"><abbr class="truncate" title="main">main</abbr>@<span class="monospace">HEAD</span></span>
+                                                </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="clickable">
+                                    <div class="inline">
+                                        <div>
+                                            <p><a class="block-link loud-link" href="/teams/oracle/builds/61089ab3c4650000071ebeb6">designitafrica</a> <span class="badge badge--inline success">completed</span></p>
+                                            <p class="meta truncate"><span><span>Production</span><span>:  <span class="nowrap-wide"><abbr class="truncate" title="main">main</abbr>@<a class="subdued-link" target="_blank" rel="noopener noreferrer" href="https://github.com/De-ORaCle/DesignIT-Africa/commit/b8a241f86183162ffa76975ed4a917a4be8ea9bd" title="Go to code"><span class="monospace">b8a241f</span></a>
+                                                </span>
+                                                </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="clickable">
+                                    <div class="inline">
+                                        <div>
+                                            <p><a class="block-link loud-link" href="/teams/oracle/builds/610892c942afb7b93ca25269">bukolaolapade</a> <span class="badge badge--inline success">completed</span></p>
+                                            <p class="meta truncate"><span><span>Production</span><span>:  <span class="nowrap-wide"><abbr class="truncate" title="main">main</abbr>@<span class="monospace">HEAD</span></span>
+                                                </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="clickable">
+                                    <div class="inline">
+                                        <div>
+                                            <p><a class="block-link loud-link" href="/teams/oracle/builds/6108928c16b0987e256f7788">benjaminolapade</a> <span class="badge badge--inline success">completed</span></p>
+                                            <p class="meta truncate"><span><span>Production</span><span>:  <span class="nowrap-wide"><abbr class="truncate" title="main">main</abbr>@<span class="monospace">HEAD</span></span>
+                                                </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="layout-overview-row">
+                        <section class="card table">
+                            <header class="table-header">
+                                <h2 class="card-title"><a class="card-title__link" href="/teams/oracle/members">Members</a></h2>
+                                <div class="toolbar toolbar--no-gradient toolbar--margin-left-none"><a class="btn btn-default btn-secondary btn-secondary--standard" href="/teams/oracle/members/new">Add members</a></div>
+                            </header>
+                            <ul class="table-body">
+                                <li>
+                                    <div class="media">
+                                        <div class="media-figure tw-mr-3"><img class="tw-rounded-50 tw-inline-block tw-text-xl tw-text-center tw-self-center tw-object-cover tw-w-4 tw-h-4 tw-leading-chill" src="https://avatars3.githubusercontent.com/u/69037600?s=40" width="40" height="40"
+                                                alt=""></div>
+                                        <div class="media-body inline">
+                                            <div class="inline">
+                                                <div>
+                                                    <p><strong class="word-wrap">Oracle</strong></p>
+                                                    <p class="break-all meta">benjaminolapade@designitafrica.org</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </main>
+            <footer class="app-footer inverse" role="contentinfo">
+                <div class="container">
+                    <nav>
+                        <ul class="tw-flex tw-flex-wrap tw-items-center tw-list-none tw-mx-[-12px] tw-my-0 tw-p-0" aria-label="External links">
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="https://www.netlify.com/docs/">Docs</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="https://www.netlify.com/pricing/">Pricing</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="https://www.netlify.com/support">Support</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="https://www.netlify.com/news/">News</a></li>
+                            <li class="tw-flex tw-items-center tw-m-[4px]"><a class="btn btn-default btn-tertiary btn-tertiary--standard tw-w-auto tw-font-semibold tw-p-1 tw-min-h-4 tw-leading-3 tw-text-left tw-text-gray-dark dark:tw-text-gray-light hover:tw-text-white hover:tw-bg-gray-darkest focus:tw-text-white focus:tw-bg-gray-darkest"
+                                    href="https://www.netlify.com/tos/">Terms</a></li>
+                        </ul>
+                    </nav>
+                    <p><small>© 2021 Netlify</small></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/app.bundle.js"></script><iframe id="CrossStorageClient-b8bffc7f-a6c9-41a8-b99e-ede59de55fa4" src="https://www.netlify.com/storage.html" style="display: none; position: absolute; top: -999px; left: -999px;"></iframe>
+    <noscript>
+      <div class="app">
+        <div
+          class="tw-flex tw-z-overlay tw-inset-0 tw-fixed tw-items-center tw-justify-center tw-m-0 tw-text-center tw-w-full tw-min-h-screen tw-bg-white"
+        >
+          <div class="container">
+            <h1>The Netlify dashboard needs JavaScript :(</h1>
+            <p>
+              You can enable JavaScript in
+              <a
+                href="https://enable-javascript.com/"
+                class="highlight-link"
+                target="new"
+                >your browser settings</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </noscript>
+
+
+    <div id="a11y-status-message" role="status" aria-live="polite" aria-relevant="additions text" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"></div>
+    <div class="ReactModalPortal"></div>
+</body>
+
+</html>
